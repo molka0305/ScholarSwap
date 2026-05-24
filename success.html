@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+<style>
+    :root {
+        --primary-dark: #0A1E4A;   
+        --primary-blue: #5BCAF4;    
+        --bg-light: #f8f9fa;        
+        --border-color: #e0e0e0;
+        --text-gray: #6B7280;
+    }
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: var(--bg-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .auth-container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+    .logo-container img {
+        height: 80px;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--primary-dark);
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+    p.subtitle {
+        color: var(--text-gray);
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    .form-group {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary-dark);
+        font-size: 14px;
+    }
+    input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        transition: 0.3s;
+    }
+    input:focus {
+        border-color: var(--primary-blue);
+    }
+    .btn-primary {
+        width: 100%;
+        padding: 14px;
+        background-color: var(--primary-dark);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .link-alt {
+        display: block;
+        margin-top: 20px;
+        font-size: 14px;
+        color: var(--primary-blue);
+        text-decoration: none;
+    }
+    .footer-link {
+        margin-top: 25px;
+        font-size: 13px;
+        color: var(--text-gray);
+    }
+    .footer-link a {
+        color: var(--primary-blue);
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+
+</head>
+<body>
+    <div class="auth-container">
+        <div style="font-size: 50px; margin-bottom: 20px;">✅</div>
+        <h2>Action réussie !</h2>
+        <p class="subtitle">Votre demande a été prise en compte avec succès.</p>
+        
+        <button class="btn-primary" onclick="window.location.href='index.html'">Aller à l'accueil</button>
+    </div>
+</body>
+</html>

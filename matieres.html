@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Matières - ScholarSwap</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/matieres.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html">
+                <img src="assets/colored-logo2.png" alt="Logo ScholarSwap" class="nav-logo">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Rechercher une matière...">
+        </div>
+        <div class="header-right">
+            <a href="profil.html" class="user-badge" style="text-decoration: none; display: inline-block;">Etudiant</a>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <nav class="sidebar">
+            <ul>
+                <li onclick="window.location.href='index.html'">
+                    <span class="icon">🏠</span> Accueil
+                </li>
+                <li class="active" onclick="window.location.href='matieres.html'">
+                    <span class="icon">📚</span> Mes Matières
+                </li>
+                <li onclick="window.location.href='quiz.html'">
+                    <span class="icon">📝</span> Mes Quiz
+                </li>
+                <li onclick="window.location.href='groupes.html'">
+                    <span class="icon">👥</span> Groupes d'étude
+                </li>
+                <hr style="border: 0; border-top: 1px solid #EEE; margin: 15px 0;">
+                <li onclick="window.location.href='parametres.html'">
+                    <span class="icon">⚙️</span> Paramètres
+                </li>
+            </ul>
+        </nav>
+
+        <main class="feed">
+            <div class="feed-header">
+                <h2>Mes Matières (Semestre 2)</h2>
+            </div>
+
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="subject-icon" style="background-color: #E8F0FE; color: #0A1E4A;">💻</div>
+                    <h3>Développement Web</h3>
+                    <p>Apprentissage du HTML5, CSS3, JavaScript et PHP pour créer des sites dynamiques.</p>
+                    <div class="subject-stats">
+                        <div class="stat-item"><strong>12</strong><span>Ressources</span></div>
+                        <div class="stat-item"><strong>3</strong><span>Quiz</span></div>
+                    </div>
+                    <button class="view-btn" onclick="window.location.href='details-matiere.html'">
+                        Ouvrir le cours
+                    </button>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon" style="background-color: #FEF7E0; color: #F9AB00;">📊</div>
+                    <h3>Base de Données</h3>
+                    <p>Gestion des données avec SQL et conception de modèles relationnels (MCD/MLD).</p>
+                    <div class="subject-stats">
+                        <div class="stat-item"><strong>8</strong><span>Ressources</span></div>
+                        <div class="stat-item"><strong>1</strong><span>Quiz</span></div>
+                    </div>
+                    <button class="view-btn" onclick="window.location.href='details-matiere.html'">
+                        Ouvrir le cours
+                    </button>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon" style="background-color: #E6F4EA; color: #1E8E3E;">📱</div>
+                    <h3>Algorithmique</h3>
+                    <p>Étude des structures de données complexes et de la logique de programmation.</p>
+                    <div class="subject-stats">
+                        <div class="stat-item"><strong>15</strong><span>Ressources</span></div>
+                        <div class="stat-item"><strong>5</strong><span>Quiz</span></div>
+                    </div>
+                    <button class="view-btn" onclick="window.location.href='details-matiere.html'">
+                        Ouvrir le cours
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

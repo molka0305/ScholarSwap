@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ScholarSwap - Flux de Ressources</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html">
+                <img src="assets/colored-logo2.png" alt="Logo" class="nav-logo">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Rechercher un cours, un quiz, un prof...">
+        </div>
+        <div class="header-right">
+            <a href="profil.html" class="user-badge" style="text-decoration: none;">Etudiant</a>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <nav class="sidebar">
+            <ul>
+                <li class="active" onclick="window.location.href='index.html'">
+                    <span class="icon">🏠</span> Accueil
+                </li>
+                <li onclick="window.location.href='matieres.html'">
+                    <span class="icon">📚</span> Mes Matières
+                </li>
+                <li onclick="window.location.href='quiz.html'">
+                    <span class="icon">📝</span> Mes Quiz
+                </li>
+                <li onclick="window.location.href='groupes.html'">
+                    <span class="icon">👥</span> Groupes d'étude
+                </li>
+                <hr style="border: 0; border-top: 1px solid #EEE; margin: 15px 0;">
+                <li onclick="window.location.href='parametres.html'">
+                    <span class="icon">⚙️</span> Paramètres
+                </li>
+            </ul>
+        </nav>
+
+        <main class="feed">
+            <div class="feed-header">
+                <h2>Ressources récentes</h2>
+            </div>
+
+            <article class="resource-card">
+                <div class="card-user">
+                    <div class="avatar">JD</div>
+                    <div class="user-info">
+                        <strong>Jean Dupont</strong> • <span>Professeur</span>
+                        <p class="post-date">Il y a 2 heures</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Introduction à l'Algorithmique</h3>
+                    <p>Voici le support du cours d'aujourd'hui sur les boucles et les conditions. N'oubliez pas le quiz vendredi !</p>
+                    <div class="file-preview">
+                        <span class="file-icon">📄</span>
+                        <span>Cours_Algo_P1.pdf</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="action-btn" onclick="ouvrirModalLikes(['Jean Dupont', 'Amine K.', 'Sarah Slimani', 'Lucas Martin'])">❤️ 15</button>
+                    <button class="action-btn comment-trigger" onclick="toggleComments('comm-jean')">💬 3 commentaires</button>
+                    <a href="assets/Cours_Algo_P1.pdf" download class="action-btn primary-btn" style="text-decoration: none;">
+                        ⬇️ Télécharger
+                    </a>
+                </div>
+
+                <div id="comm-jean" class="comment-section" style="display: none;">
+                    <div class="comment-list">
+                        <p><strong>Jean :</strong> Super cours, merci !</p>
+                        <p><strong>Amine :</strong> Est-ce que tu as la partie 2 ?</p>
+                        <p><strong>Sarah :</strong> Très clair, ça m'a aidé pour le TP.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="resource-card">
+                <div class="card-user">
+                    <div class="avatar blue">SS</div>
+                    <div class="user-info">
+                        <strong>Sarah Slimani</strong> • <span>Étudiante</span>
+                        <p class="post-date">Il y a 5 heures</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Fiche de révision : HTML/CSS</h3>
+                    <p>J'J'ai résumé les sélecteurs CSS importants. J'espère que ça vous aidera pour le TP !</p>
+                </div>
+                <div class="card-actions">
+                    <button class="action-btn" onclick="ouvrirModalLikes(['Sarah Slimani', 'Marc Antoine', 'Julie Robert', 'Thomas Durand', 'Léa Morel'])">❤️ 42</button>
+                    <button class="action-btn comment-trigger" onclick="toggleComments('comm-sarah')">💬 12 commentaires</button>
+                    <a href="assets/fiche-css.pdf" target="_blank" class="action-btn primary-btn" style="text-decoration: none;">
+                        👁️ Voir
+                    </a>
+                </div>
+
+                <div id="comm-sarah" class="comment-section" style="display: none;">
+                    <div class="comment-list">
+                        <p><strong>Sarah S. :</strong> Merci pour ce partage !</p>
+                        <p><strong>Lucas :</strong> Très utile pour l'examen.</p>
+                        <p><em>... (10 autres commentaires)</em></p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <div id="modalLikes" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fermerModalLikes()">&times;</span>
+            <h3>Aimé par</h3>
+            <ul id="listeNomsLikes"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour afficher/cacher les commentaires
+        function toggleComments(id) {
+            const section = document.getElementById(id);
+            section.style.display = (section.style.display === 'none') ? 'block' : 'none';
+        }
+
+        // Fonctions pour la modale des likes
+        function ouvrirModalLikes(noms) {
+            const modal = document.getElementById('modalLikes');
+            const liste = document.getElementById('listeNomsLikes');
+            liste.innerHTML = ''; 
+            noms.forEach(nom => {
+                const li = document.createElement('li');
+                li.innerHTML = '👤 ' + nom;
+                liste.appendChild(li);
+            });
+            modal.style.display = 'flex';
+        }
+
+        function fermerModalLikes() {
+            document.getElementById('modalLikes').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modalLikes')) {
+                fermerModalLikes();
+            }
+        }
+    </script>
+</body>
+</html>
