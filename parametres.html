@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres - ScholarSwap</title>
+
+    <link rel="stylesheet" href="css/parametres.css">
+</head>
+
+<body>
+
+    <div id="toast" class="toast">
+        Action réussie !
+    </div>
+
+    <div class="container">
+
+        <h1>Paramètres du compte</h1>
+
+        <div class="card">
+
+            <h2>👤 Profil public</h2>
+
+            <label>Nom d'affichage</label>
+            <input type="text" value="Molka">
+
+            <label>Bio</label>
+            <textarea placeholder="Parle-nous de tes études..."></textarea>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🔔 Notifications</h2>
+
+            <div class="ligne">
+                <span>Nouveaux messages</span>
+                <input type="checkbox" checked>
+            </div>
+
+            <div class="ligne">
+                <span>Nouveaux quiz</span>
+                <input type="checkbox" checked>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🔒 Sécurité</h2>
+
+            <div class="password-fields">
+                <label>Ancien mot de passe</label>
+                <input type="password" id="old-pass" placeholder="Entrez l'ancien mot de passe">
+
+                <label>Nouveau mot de passe</label>
+                <input type="password" id="new-pass" placeholder="Entrez le nouveau mot de passe">
+
+                <div class="ligne" style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="show-pass" onclick="togglePassword()">
+                    <span style="font-size: 0.9em;">Afficher les mots de passe</span>
+                </div>
+            </div>
+
+            <div class="buttons" style="margin-top: 20px;">
+                <button onclick="modifierMotDePasse()">
+                    Modifier le mot de passe
+                </button>
+
+                <a href="supprimer-compte.html" class="delete-link">
+                    Supprimer le compte
+                </a>
+            </div>
+
+        </div>
+
+        <button class="save-btn" onclick="enregistrer()">
+            Enregistrer les modifications
+        </button>
+
+    </div>
+
+    <script src="js/parametres.js"></script>
+    <script>
+        // Fonction pour afficher/masquer les mots de passe
+        function togglePassword() {
+            var oldPass = document.getElementById("old-pass");
+            var newPass = document.getElementById("new-pass");
+            var checkbox = document.getElementById("show-pass");
+            
+            if (checkbox.checked) {
+                oldPass.type = "text";
+                newPass.type = "text";
+            } else {
+                oldPass.type = "password";
+                newPass.type = "password";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

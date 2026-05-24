@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un groupe - ScholarSwap</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/groupes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Style pour le message de succès */
+        .success-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none; /* Caché par défaut */
+            z-index: 2000;
+            font-family: 'Open Sans', sans-serif;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .btn-loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div id="successToast" class="success-toast">✅ Groupe créé avec succès ! Redirection...</div>
+
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html">
+                <img src="assets/colored-logo2.png" alt="Logo ScholarSwap" class="nav-logo">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Rechercher un groupe (ex: JavaScript)...">
+        </div>
+        <div class="header-right">
+            <div class="user-badge" onclick="window.location.href='profil.html'" style="cursor: pointer;">Etudiant</div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <nav class="sidebar">
+            <ul>
+                <li onclick="window.location.href='index.html'"><span class="icon">🏠</span> Accueil</li>
+                <li onclick="window.location.href='matieres.html'"><span class="icon">📚</span> Mes Matières</li>
+                <li onclick="window.location.href='quiz.html'"><span class="icon">📝</span> Mes Quiz</li>
+                <li class="active" onclick="window.location.href='groupes.html'"><span class="icon">👥</span> Groupes d'étude</li>
+                <hr style="border: 0; border-top: 1px solid #EEE; margin: 15px 0;">
+                <li onclick="window.location.href='parametres.html'"><span class="icon">⚙️</span> Paramètres</li>
+            </ul>
+        </nav>
+
+        <main class="feed">
+            <div class="group-card" style="max-width: 600px; margin: auto;">
+                <h2 style="margin-bottom: 20px; font-family: Montserrat;">Créer un nouveau groupe</h2>
+                <form id="createGroupForm">
+                    <div class="form-group">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Nom de la communauté</label>
+                        <input type="text" id="groupName" required placeholder="Ex: Masterclass PHP" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ddd;">
+                    </div>
+                    <div class="form-group">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Description</label>
+                        <textarea id="groupDesc" required rows="4" placeholder="Décrivez l'objectif du groupe..." style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ddd; font-family: inherit;"></textarea>
+                    </div>
+                    <button type="submit" class="create-group-btn" id="submitBtn" style="width: 100%;">Publier le groupe</button>
+                </form>
+                <button class="join-btn" style="margin-top: 10px; border: none; background: #eee; color: #333; width: 100%;" onclick="window.location.href='groupes.html'">Annuler</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('createGroupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêche le rechargement immédiat
+            
+            const btn = document.getElementById('submitBtn');
+            const toast = document.getElementById('successToast');
+            
+            // 1. Simulation visuelle du chargement
+            btn.innerText = "Publication...";
+            btn.classList.add('btn-loading');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // 2. Affichage du message de succès
+                toast.style.display = 'block';
+
+                // 3. Redirection après 2 secondes
+                setTimeout(() => {
+                    window.location.href = 'groupes.html';
+                }, 2000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
