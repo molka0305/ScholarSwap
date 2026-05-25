@@ -15,7 +15,7 @@ ScholarSwap est une plateforme web dynamique développée dans le cadre du modul
 Pour faire fonctionner ce projet localement, suivez ces étapes :
 
 # 1. Prérequis
-- Avoir installé **XAMPP**, **WAMP** ou **MAMP**.
+- Avoir installé **XAMPP**
 - Navigateur web moderne (Chrome, Firefox, Edge).
 
 # 2. Base de données
@@ -30,4 +30,4 @@ Pour faire fonctionner ce projet localement, suivez ces étapes :
    $host = 'localhost';
    $dbname = 'scholarswap';
    $user = 'root';
-   $pass = ''; // Modifiez si vous avez un mot de passe MySQL
+   $pass = '';
